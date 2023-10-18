@@ -173,7 +173,7 @@ if uploaded_file is not None:
 
             st.dataframe(event_df_final[option][[option,'Date/Time']], use_container_width=True)
 
-        with open("test.red", "w", encoding="utf-8") as f:
+        with open("discrete_rain_profile.red", "w", encoding="utf-8") as f:
 
             remove_no_rain_rows_df = event_df_final[option][event_df_final[option]['Big Event Number'] != "Not a Big Event"]
             grouped_event = remove_no_rain_rows_df.groupby(remove_no_rain_rows_df['Big Event Number'])
@@ -222,8 +222,8 @@ if uploaded_file is not None:
                 f.write("END")
                 f.write("\n")
             
-        with open("test.red", "rb") as file:
-            st.download_button(label="Download the .red file for discrete rain events", data=file,  file_name='test.red')
+        with open("discrete_rain_profile.red", "rb") as file:
+            st.download_button(label="Download the .red file for discrete rain events", data=file,  file_name='discrete_rain_profile.red')
 
             
 
